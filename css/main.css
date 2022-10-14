@@ -1,3 +1,7 @@
+:root {
+  --opacity: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,16 +12,55 @@ html {
   font-size: 62.5%;
 }
 
+h2 {
+  width: 100%;
+  font-size: 4.8rem;
+  font-weight: 600;
+  font-style: italic;
+  font-family: utopia-std-display, serif;
+  margin-bottom: 13rem;
+}
+
 body {
-  height: 100vh;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 100%), url(../img/bg-image.webp);
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   color: #ffffff;
   font-family: neue-haas-grotesk-display, sans-serif;
   padding: 0 8.3333333333%;
+}
+body .background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/bg-image.webp);
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  scale: 1.1;
+  translate: 0 5%;
+  z-index: -2;
+}
+body .background::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 100%);
+  z-index: -2;
+}
+body .background::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  z-index: -1;
+  opacity: var(--opacity);
 }
 
 .scroll-arrow {
@@ -56,6 +99,7 @@ body {
   text-align: right;
   white-space: nowrap;
   width: 100%;
+  margin-bottom: 0;
 }
 .home-screen h2.h2-pt1 {
   grid-row: 2;
@@ -76,21 +120,14 @@ body {
 }
 
 .history {
-  min-height: 100vh;
+  padding-top: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.history--title {
-  width: 100%;
-  font-size: 4.8rem;
-  font-weight: 600;
-  font-style: italic;
-  font-family: utopia-std-display, serif;
-  margin-bottom: 13rem;
-}
 .history--content {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
@@ -145,6 +182,53 @@ body {
 .history--content--text {
   font-size: 24px;
   margin-top: 2rem;
+  max-width: 30ch;
+}
+
+.expositions {
+  padding-top: 25vh;
+  padding-bottom: 10vh;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.expositions .expositions-container {
+  width: 40vw;
+  min-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+}
+.expositions .expositions-container > * {
+  width: 100%;
+}
+.expositions .expositions-container > *:nth-child(1) {
+  text-align: right;
+}
+.expositions .expositions-container > *:nth-child(3) {
+  text-align: right;
+}
+.expositions h3 {
+  position: relative;
+  font-size: 4.8rem;
+  font-weight: 600;
+}
+.expositions h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.1rem;
+  width: 100%;
+  background-color: #ffffff;
+}
+.expositions p {
+  color: rgba(255, 255, 255, 0.5647058824);
+  font-size: 3.6rem;
 }
 
 /*# sourceMappingURL=main.css.map */
