@@ -1,7 +1,5 @@
 @mixin breakpoint($width) {
-    @media screen and (max-width: $width),
-    // permet d'activer le responsive aussi en mode paysage
-    screen and (max-height: $width) and (orientation: landscape) {
+    @media screen and (max-width: $width) {
         @content
     }
 }
