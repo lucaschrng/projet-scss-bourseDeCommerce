@@ -8,28 +8,32 @@ let timelineTexts = document.querySelectorAll('.history--content h3, .history--c
 let opacity;
 let scrollValue;
 let posY;
+let resetNeeded = false;
 
-console.log(window.innerWidth);
+widthCheck();
 
-if (window.innerWidth > 600) {
-    updateOpacity();
-    updateBg();
-    appearOnScroll();
-    animOnScroll();
+window.addEventListener('resize', widthCheck);
+window.addEventListener('scroll', widthCheck);
 
-    window.addEventListener('scroll', () => {
+//functions
+
+function widthCheck() {
+    if (!(screen.width < 600) && !(window.innerWidth < 600)) {
         updateOpacity();
         updateBg();
         appearOnScroll();
         animOnScroll();
-    })
+        resetNeeded = false;
+        console.log('hello');
+    }
+    else {
+        if(!(resetNeeded)){
+            console.log(timelineElements);
+            reset();
+            resetNeeded = true;
+        }
+    }
 }
-else {
-    document.documentElement.style.setProperty('--width', screen.width);
-    document.documentElement.style.setProperty('--height', screen.height+1);
-}
-
-//functions
 
 function updateOpacity() {
     if(window.scrollY < window.innerHeight) {
@@ -44,10 +48,6 @@ function updateOpacity() {
 function updateBg() {
     scrollValue = 5-window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*10;
     background.style.translate = '0 ' + scrollValue + '%';
-}
-
-function addAnim($element, $name, $duration, $delay) {
-    $element.style.animation = $name + ' ' + $duration + 's ease ' + $delay;
 }
 
 function appearOnScroll() {
@@ -99,4 +99,22 @@ function animOnScroll() {
         timelineElements[3].style.width = '0%';
         timelineElements[4].style.opacity = 0;
     }
+}
+
+function reset() {
+    appearElements.forEach(element => {
+        element.style.opacity = 1;
+        element.style.translate = '0 0';
+    });
+    for (let i = 0; i < 3; i++) {
+            timelineElements[i].style.scale = 1;
+            timelineTexts[i].style.transition = 'all 0.5s ease';
+            timelineTexts[i+3].style.transition = 'all 0.5s ease';
+            timelineTexts[i].style.translate = '0 0';
+            timelineTexts[i+3].style.translate = '0 0';
+            timelineTexts[i].style.opacity = 1;
+            timelineTexts[i+3].style.opacity = 1;
+    }
+    timelineElements[3].style.width = '100%';
+    timelineElements[4].style.opacity = 1;
 }

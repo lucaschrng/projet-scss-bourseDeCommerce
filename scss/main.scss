@@ -2,8 +2,6 @@
 
 :root {
     --opacity: 0;
-    --height: 0;
-    --width: 0;
 }
 
 * {
@@ -170,7 +168,7 @@ body {
         grid-column: 2/4;
         grid-row: 3;
 
-        @include breakpoint(600pc) {
+        @include breakpoint(600px) {
             display: none;
         }
     }
@@ -257,6 +255,7 @@ body {
 
             @include breakpoint(600px) {
                 font-size: 2rem;
+                max-width: none;
             }
         }
 
@@ -299,7 +298,8 @@ body {
 
     @include breakpoint(600px) {
         padding-top: 0;
-        padding-bottom: 1rem;
+        padding-bottom: 10rem;
+        min-height: auto;
     }
 
     .expositions-container {

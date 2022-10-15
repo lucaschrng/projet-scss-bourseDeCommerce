@@ -1,7 +1,5 @@
 :root {
   --opacity: 0;
-  --height: 0;
-  --width: 0;
 }
 
 * {
@@ -165,7 +163,7 @@ body .background::after {
   grid-column: 2/4;
   grid-row: 3;
 }
-@media screen and (max-width: 600pc) {
+@media screen and (max-width: 600px) {
   .home-screen .decorative-div {
     display: none;
   }
@@ -264,6 +262,7 @@ body .background::after {
 @media screen and (max-width: 600px) {
   .history--content--text {
     font-size: 2rem;
+    max-width: none;
   }
 }
 @media screen and (max-width: 600px) {
@@ -303,7 +302,8 @@ body .background::after {
 @media screen and (max-width: 600px) {
   .expositions {
     padding-top: 0;
-    padding-bottom: 1rem;
+    padding-bottom: 10rem;
+    min-height: auto;
   }
 }
 .expositions .expositions-container {
