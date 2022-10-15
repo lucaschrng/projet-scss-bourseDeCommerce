@@ -92,6 +92,24 @@ body .background::after {
   opacity: var(--opacity);
 }
 
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+footer ul a {
+  padding-bottom: 2rem;
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+@media screen and (max-width: 600px) {
+  footer ul a {
+    color: #1E1E1E;
+  }
+}
+
 .home-screen {
   height: 100vh;
   display: grid;
