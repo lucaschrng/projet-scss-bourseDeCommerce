@@ -109,6 +109,9 @@ footer ul a {
     color: #1E1E1E;
   }
 }
+footer ul a:hover {
+  opacity: 0.5;
+}
 
 .home-screen {
   height: 100vh;
@@ -413,6 +416,9 @@ footer ul a {
   width: 100%;
   background-color: #1E1E1E;
 }
+.pageSources a:hover {
+  opacity: 0.5;
+}
 .pageSources main > a {
   color: #1E1E1E;
   opacity: 0.7;
@@ -422,6 +428,9 @@ footer ul a {
   .pageSources main > a {
     font-size: 1.6rem;
   }
+}
+.pageSources main > a:hover {
+  opacity: 0.5;
 }
 .pageSources h1 {
   margin-top: 5rem;
@@ -434,15 +443,15 @@ footer ul a {
     font-size: 3.2rem;
   }
 }
-.pageSources ul {
+.pageSources main ul {
   list-style: none;
 }
-.pageSources ul li a {
+.pageSources main ul li a {
   color: #1E1E1E;
   font-size: 2rem;
 }
 @media screen and (max-width: 600px) {
-  .pageSources ul li a {
+  .pageSources main ul li a {
     font-size: 1.6rem;
   }
 }
@@ -451,6 +460,9 @@ footer ul a {
   bottom: 0;
   left: 0;
   width: 100vw;
+}
+.pageSources footer a {
+  color: #1E1E1E;
 }
 
 /*# sourceMappingURL=main.css.map */
