@@ -9,17 +9,25 @@ let opacity;
 let scrollValue;
 let posY;
 
-updateOpacity();
-updateBg();
-appearOnScroll();
-animOnScroll();
+console.log(window.innerWidth);
 
-window.addEventListener('scroll', () => {
+if (window.innerWidth > 600) {
     updateOpacity();
     updateBg();
     appearOnScroll();
     animOnScroll();
-})
+
+    window.addEventListener('scroll', () => {
+        updateOpacity();
+        updateBg();
+        appearOnScroll();
+        animOnScroll();
+    })
+}
+else {
+    document.documentElement.style.setProperty('--width', screen.width);
+    document.documentElement.style.setProperty('--height', screen.height+1);
+}
 
 //functions
 
