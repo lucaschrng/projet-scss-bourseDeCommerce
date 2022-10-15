@@ -18,7 +18,7 @@ window.addEventListener('scroll', widthCheck);
 //functions
 
 function widthCheck() {
-    if (!(screen.width < 600) && !(window.innerWidth < 600)) {
+    if (!((screen.width < 600) || (screen.width < screen.height)) && !(window.innerWidth < 600) && ) {
         updateOpacity();
         updateBg();
         appearOnScroll();
