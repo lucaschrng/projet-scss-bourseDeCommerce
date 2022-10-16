@@ -294,7 +294,7 @@ footer ul a:hover {
 @media screen and (max-width: 1400px) {
   .history--content--text {
     font-size: 2rem;
-    max-width: none;
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 900px) {
@@ -352,6 +352,11 @@ footer ul a:hover {
     min-width: auto;
     gap: 5rem;
     padding: 0 5rem;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .expositions .expositions-container {
+    padding: 0 0;
   }
 }
 .expositions .expositions-container > * {

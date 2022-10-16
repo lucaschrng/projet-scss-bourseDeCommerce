@@ -286,7 +286,7 @@ footer ul {
 
             @include breakpoint(1400px) {
                 font-size: 2rem;
-                max-width: none;
+                max-width: 100%;
             }
         }
 
@@ -346,6 +346,10 @@ footer ul {
             min-width: auto;
             gap: 5rem;
             padding: 0 5rem;
+        }
+
+        @include breakpoint(1400px) {
+            padding: 0 0;
         }
 
         > * {
