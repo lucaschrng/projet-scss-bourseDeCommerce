@@ -335,10 +335,11 @@ footer ul {
         align-items: center;
         gap: 10rem;
 
-        @include breakpoint(900px) {
+        @include breakpoint(1200px) {
             width: 100%;
             min-width: auto;
             gap: 5rem;
+            padding: 0 5rem;
         }
 
         > * {
@@ -357,7 +358,7 @@ footer ul {
 
     h3 {
         position: relative;
-        font-size: 4.8rem;
+        font-size: 4rem;
         font-weight: 500;
 
         @include breakpoint(1400px) {
