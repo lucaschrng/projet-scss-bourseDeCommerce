@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --opacity: 0;
 }
@@ -119,9 +120,12 @@ footer ul a:hover {
 
 .home-screen {
   height: 100vh;
+  /* sans le display grid, la ligne décorative n'irait pas jusqu'au bout car le h2 prends la largeur du plus gros contenu */
   display: grid;
   grid-template-columns: min-content auto auto min-content;
   grid-template-rows: auto min-content min-content;
+  /* organisation du grid en areas pour se repérer plus facilement */
+  grid-template-areas: "h1  .    .    .  " "h1  .   h2_1 h2_1" "h1 line line h2_2";
   align-items: end;
   column-gap: 1rem;
   padding-bottom: 7rem;
@@ -141,7 +145,7 @@ footer ul a:hover {
   line-height: 4.8rem;
   font-weight: 400;
   white-space: nowrap;
-  grid-row: 1/4;
+  grid-area: h1;
 }
 @media screen and (max-width: 900px) {
   .home-screen h1 {
@@ -161,12 +165,12 @@ footer ul a:hover {
   margin-bottom: 0;
 }
 .home-screen h2.h2-pt1 {
-  grid-row: 2;
-  grid-column: 3/5;
+  /* séparation du h2 en deux lignes pour que leurs largeurs soient indépendantes */
+  grid-area: h2_1;
 }
 .home-screen h2.h2-pt2 {
-  grid-row: 3;
-  grid-column: 4;
+  /* séparation du h2 en deux lignes pour que leurs largeurs soient indépendantes */
+  grid-area: h2_2;
 }
 @media screen and (max-width: 900px) {
   .home-screen h2 {
@@ -180,13 +184,13 @@ footer ul a:hover {
   }
 }
 .home-screen .decorative-div {
+  /* utilisation d'un div au lieu d'un ::before ou ::after pour plus de facilité de placement */
   height: 0.1rem;
   width: 100%;
   background-color: #ffffff;
   opacity: 0.2;
   transform: translateY(-0.6rem);
-  grid-column: 2/4;
-  grid-row: 3;
+  grid-area: line;
 }
 @media screen and (max-width: 900px) {
   .home-screen .decorative-div {
@@ -194,6 +198,7 @@ footer ul a:hover {
   }
 }
 .home-screen .mobile-image {
+  /* image qui s'affiche que sur mobile, à la place de l'image de fond */
   display: none;
 }
 @media screen and (max-width: 900px) {
@@ -213,6 +218,8 @@ footer ul a:hover {
 }
 .history--content {
   width: 100%;
+  /* utilisation d'un grid car plusieurs éléments sont alignés sur deux dimensions */
+  /* le grid permet aussi de supperposés des éléments, ici les ronds et la flèche sur la ligne */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
@@ -226,34 +233,35 @@ footer ul a:hover {
 }
 @media screen and (max-width: 900px) {
   .history--content > div, .history--content > img {
+    /* enlève les élements graphiques de la timeline (mobile) */
     display: none;
   }
 }
 .history--content--circle__1 {
   grid-column: 1;
+  grid-row: 1;
   height: 1rem;
   width: 1rem;
   border-radius: 50%;
   background-color: #ffffff;
-  grid-row: 1;
   transition: all 0.2s ease;
 }
 .history--content--circle__2 {
   grid-column: 2;
+  grid-row: 1;
   height: 1rem;
   width: 1rem;
   border-radius: 50%;
   background-color: #ffffff;
-  grid-row: 1;
   transition: all 0.2s ease;
 }
 .history--content--circle__3 {
   grid-column: 3;
+  grid-row: 1;
   height: 1rem;
   width: 1rem;
   border-radius: 50%;
   background-color: #ffffff;
-  grid-row: 1;
   transition: all 0.2s ease;
 }
 .history--content--line {
@@ -299,6 +307,8 @@ footer ul a:hover {
 }
 @media screen and (max-width: 900px) {
   .history--content {
+    /* les textes ont été placés de sorte à ce qu'ils se placent naturellement dans le grid */
+    /* sur mobile, l'affichage passe en flex, c'est pourquoi on change l'ordre des textes afin qu'ils apparaissent en dessous de leur titre respectif */
     display: flex;
     flex-direction: column;
   }
