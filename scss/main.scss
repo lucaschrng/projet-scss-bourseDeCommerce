@@ -224,6 +224,10 @@ footer ul {
         row-gap: 1rem;
         column-gap: 10rem;
 
+        @include breakpoint(1400px) {
+            column-gap: 4rem;
+        }
+
         // enlève les élements graphiques de la timeline (mobile)
         > div, > img {
             @include breakpoint(900px) {
@@ -274,9 +278,11 @@ footer ul {
         }
 
         &--text {
-            font-size: 24px;
+            font-size: 2.4rem;
+            line-height: 1.1em;
             margin-top: 2rem;
             max-width: 30ch;
+            word-spacing: 0.2rem;
 
             @include breakpoint(1400px) {
                 font-size: 2rem;
@@ -328,14 +334,14 @@ footer ul {
     }
 
     .expositions-container {
-        width: 40vw;
+        width: 60vw;
         min-width: 80rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 10rem;
 
-        @include breakpoint(1200px) {
+        @include breakpoint(1400px) {
             width: 100%;
             min-width: auto;
             gap: 5rem;

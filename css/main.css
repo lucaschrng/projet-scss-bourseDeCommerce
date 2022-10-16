@@ -219,6 +219,11 @@ footer ul a:hover {
   row-gap: 1rem;
   column-gap: 10rem;
 }
+@media screen and (max-width: 1400px) {
+  .history--content {
+    column-gap: 4rem;
+  }
+}
 @media screen and (max-width: 900px) {
   .history--content > div, .history--content > img {
     display: none;
@@ -280,9 +285,11 @@ footer ul a:hover {
   }
 }
 .history--content--text {
-  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 1.1em;
   margin-top: 2rem;
   max-width: 30ch;
+  word-spacing: 0.2rem;
 }
 @media screen and (max-width: 1400px) {
   .history--content--text {
@@ -332,14 +339,14 @@ footer ul a:hover {
   }
 }
 .expositions .expositions-container {
-  width: 40vw;
+  width: 60vw;
   min-width: 80rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10rem;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .expositions .expositions-container {
     width: 100%;
     min-width: auto;
