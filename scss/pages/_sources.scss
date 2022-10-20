@@ -30,7 +30,7 @@
         opacity: 0.7;
         font-size: 2rem;
 
-        @include breakpoint(900px) {
+        @include breakpoint(medium) {
             font-size: 1.6rem;
         }
 
@@ -45,7 +45,7 @@
         font-size: 5rem;
         font-weight: $fw-regular;
 
-        @include breakpoint(900px) {
+        @include breakpoint(medium) {
             font-size: 3.2rem;
         }
     }
@@ -57,7 +57,7 @@
             color: $clr-dark ;
             font-size: 2rem;
 
-            @include breakpoint(900px) {
+            @include breakpoint(medium) {
                 font-size: 1.6rem;
             }
         }

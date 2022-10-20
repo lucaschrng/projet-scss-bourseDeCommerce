@@ -18,12 +18,12 @@
         row-gap: 1rem;
         column-gap: 10rem;
 
-        @include breakpoint(1400px) {
+        @include breakpoint(large) {
             column-gap: 4rem;
         }
 
         > div, > img {
-            @include breakpoint(900px) {
+            @include breakpoint(medium) {
                 /* enlève les élements graphiques de la timeline (mobile) */
                 display: none;
             }
@@ -67,7 +67,7 @@
             font-weight: $fw-bold;
             margin-top: 2rem;
 
-            @include breakpoint(1400px) {
+            @include breakpoint(large) {
                 font-size: 2.4rem;
             }
         }
@@ -79,13 +79,13 @@
             max-width: 30ch;
             word-spacing: 0.2rem;
 
-            @include breakpoint(1400px) {
+            @include breakpoint(large) {
                 font-size: 2rem;
                 max-width: 100%;
             }
         }
 
-        @include breakpoint(900px) {
+        @include breakpoint(medium) {
             /* les textes ont été placés de sorte à ce qu'ils se placent naturellement dans le grid */
             /* sur mobile, l'affichage passe en flex, c'est pourquoi on change l'ordre des textes afin qu'ils apparaissent en dessous de leur titre respectif */
             display: flex;
@@ -109,7 +109,7 @@
         }
     }
 
-    @include breakpoint(900px) {
+    @include breakpoint(medium) {
         padding-top: 0;
     }
 }

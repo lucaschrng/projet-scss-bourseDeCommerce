@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
 
-    @include breakpoint(900px) {
+    @include breakpoint(medium) {
         padding-top: 0;
         padding-bottom: 10rem;
         min-height: auto;
@@ -25,14 +25,14 @@
         align-items: center;
         gap: 10rem;
 
-        @include breakpoint(1400px) {
+        @include breakpoint(large) {
             width: 100%;
             min-width: auto;
             gap: 5rem;
             padding: 0 5rem;
         }
 
-        @include breakpoint(1400px) {
+        @include breakpoint(large) {
             padding: 0 0;
         }
 
@@ -55,11 +55,11 @@
         font-size: 4rem;
         font-weight: $fw-regular;
 
-        @include breakpoint(1400px) {
+        @include breakpoint(large) {
             font-size: 3rem;
         }
 
-        @include breakpoint(900px) {
+        @include breakpoint(medium) {
             font-size: 2rem;
         }
 
@@ -72,7 +72,7 @@
             width: 100%;
             background-color: #ffffff;
             
-            @include breakpoint(900px) {
+            @include breakpoint(medium) {
                 display: none;
             }
         }
@@ -82,11 +82,11 @@
         color: #ffffff90;
         font-size: 3.6rem;
 
-        @include breakpoint(1400px) {
+        @include breakpoint(large) {
             font-size: 3rem;
         }
 
-        @include breakpoint(900px) {
+        @include breakpoint(medium) {
             position: relative;
             font-size: 2rem;
             color: #1E1E1E;

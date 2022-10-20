@@ -7,3 +7,8 @@ $fw-bold: 600;
 
 $ff-sans-serif: neue-haas-grotesk-display, sans-serif;
 $ff-serif: utopia-std-display, serif;
+
+$breakpoints: (
+    'medium': 900px,
+    'large': 1400px,
+)

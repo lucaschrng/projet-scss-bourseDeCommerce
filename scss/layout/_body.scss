@@ -6,7 +6,7 @@ body {
     font-family: $ff-sans-serif;
     padding: 0 calc(100%/12);
 
-    @include breakpoint(900px) {
+    @include breakpoint(medium) {
         color: $clr-dark;
         background-color: $clr-light;
         padding: 2rem 2rem;
@@ -27,7 +27,7 @@ body {
         translate: 0 5%;
         z-index: -2;
 
-        @include breakpoint(900px) {
+        @include breakpoint(medium) {
             display: none;
         }
 

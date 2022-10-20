@@ -10,11 +10,11 @@ h2 {
     font-family: $ff-serif;
     margin-bottom: 13rem;
 
-    @include breakpoint(1400px) {
+    @include breakpoint(large) {
         font-size: 3.2rem;
     }
 
-    @include breakpoint(900px) {
+    @include breakpoint(medium) {
         margin-bottom: 5rem;
         margin-top: 10rem;
 
