@@ -1,4 +1,8 @@
 @charset "UTF-8";
+:root {
+  --opacity: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -495,10 +499,6 @@ footer ul a:hover {
 }
 .pageSources footer a {
   color: #1E1E1E;
-}
-
-:root {
-  --opacity: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

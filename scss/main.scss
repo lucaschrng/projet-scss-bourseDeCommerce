@@ -1,6 +1,7 @@
 @use 'abstracts/mixins' as *;
 @use 'abstracts/variables' as *;
 
+@use 'base/base';
 @use 'base/reset';
 
 @use 'components/h2';
@@ -12,7 +13,3 @@
 @use 'layout/home';
 
 @use 'pages/sources';
-
-:root {
-    --opacity: 0;
-}
