@@ -1,8 +1,4 @@
 @charset "UTF-8";
-:root {
-  --opacity: 0;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -97,6 +93,110 @@ body .background::after {
   opacity: var(--opacity);
 }
 
+.expositions {
+  padding-top: 25vh;
+  padding-bottom: 10vh;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 900px) {
+  .expositions {
+    padding-top: 0;
+    padding-bottom: 10rem;
+    min-height: auto;
+  }
+}
+.expositions .expositions-container {
+  width: 60vw;
+  min-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+}
+@media screen and (max-width: 1400px) {
+  .expositions .expositions-container {
+    width: 100%;
+    min-width: auto;
+    gap: 5rem;
+    padding: 0 5rem;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .expositions .expositions-container {
+    padding: 0 0;
+  }
+}
+.expositions .expositions-container > * {
+  width: 100%;
+}
+.expositions .expositions-container > *:nth-child(1) {
+  text-align: right;
+}
+.expositions .expositions-container > *:nth-child(3) {
+  text-align: right;
+}
+.expositions h3 {
+  position: relative;
+  font-size: 4rem;
+  font-weight: 500;
+}
+@media screen and (max-width: 1400px) {
+  .expositions h3 {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .expositions h3 {
+    font-size: 2rem;
+  }
+}
+.expositions h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.1rem;
+  width: 100%;
+  background-color: #ffffff;
+}
+@media screen and (max-width: 900px) {
+  .expositions h3::after {
+    display: none;
+  }
+}
+.expositions p {
+  color: rgba(255, 255, 255, 0.5647058824);
+  font-size: 3.6rem;
+}
+@media screen and (max-width: 1400px) {
+  .expositions p {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .expositions p {
+    position: relative;
+    font-size: 2rem;
+    color: #1E1E1E;
+    opacity: 0.8;
+  }
+  .expositions p::after {
+    content: "";
+    position: absolute;
+    bottom: -2.5rem;
+    left: 0;
+    height: 0.1rem;
+    width: 100%;
+    background-color: #1E1E1E;
+    opacity: 0.2;
+  }
+}
+
 footer ul {
   display: flex;
   justify-content: center;
@@ -116,97 +216,6 @@ footer ul a {
 }
 footer ul a:hover {
   opacity: 0.5;
-}
-
-.home-screen {
-  height: 100vh;
-  /* sans le display grid, la ligne décorative n'irait pas jusqu'au bout car le h2 prends la largeur du plus gros contenu */
-  display: grid;
-  grid-template-columns: min-content auto auto min-content;
-  grid-template-rows: auto min-content min-content;
-  /* organisation du grid en areas pour se repérer plus facilement */
-  grid-template-areas: "h1  .    .    .  " "h1  .   h2_1 h2_1" "h1 line line h2_2";
-  align-items: end;
-  column-gap: 1rem;
-  padding-bottom: 7rem;
-}
-@media screen and (max-width: 900px) {
-  .home-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: fit-content;
-    width: 100%;
-    padding-bottom: 0;
-  }
-}
-.home-screen h1 {
-  font-size: 4.8rem;
-  line-height: 4.8rem;
-  font-weight: 400;
-  white-space: nowrap;
-  grid-area: h1;
-}
-@media screen and (max-width: 900px) {
-  .home-screen h1 {
-    margin-bottom: 1rem;
-  }
-}
-.home-screen h2 {
-  width: fit-content;
-  font-family: utopia-std-display, serif;
-  font-size: 3.2rem;
-  line-height: 3.2rem;
-  font-weight: 400;
-  font-style: italic;
-  text-align: right;
-  white-space: nowrap;
-  width: 100%;
-  margin-bottom: 0;
-}
-.home-screen h2.h2-pt1 {
-  /* séparation du h2 en deux lignes pour que leurs largeurs soient indépendantes */
-  grid-area: h2_1;
-}
-.home-screen h2.h2-pt2 {
-  /* séparation du h2 en deux lignes pour que leurs largeurs soient indépendantes */
-  grid-area: h2_2;
-}
-@media screen and (max-width: 900px) {
-  .home-screen h2 {
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    opacity: 0.8;
-    margin-top: 0;
-  }
-  .home-screen h2::after {
-    display: none;
-  }
-}
-.home-screen .decorative-div {
-  /* utilisation d'un div au lieu d'un ::before ou ::after pour plus de facilité de placement */
-  height: 0.1rem;
-  width: 100%;
-  background-color: #ffffff;
-  opacity: 0.2;
-  transform: translateY(-0.6rem);
-  grid-area: line;
-}
-@media screen and (max-width: 900px) {
-  .home-screen .decorative-div {
-    display: none;
-  }
-}
-.home-screen .mobile-image {
-  /* image qui s'affiche que sur mobile, à la place de l'image de fond */
-  display: none;
-}
-@media screen and (max-width: 900px) {
-  .home-screen .mobile-image {
-    display: inline;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
 }
 
 .history {
@@ -331,107 +340,93 @@ footer ul a:hover {
   }
 }
 
-.expositions {
-  padding-top: 25vh;
-  padding-bottom: 10vh;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.home-screen {
+  height: 100vh;
+  /* sans le display grid, la ligne décorative n'irait pas jusqu'au bout car le h2 prends la largeur du plus gros contenu */
+  display: grid;
+  grid-template-columns: min-content auto auto min-content;
+  grid-template-rows: auto min-content min-content;
+  /* organisation du grid en areas pour se repérer plus facilement */
+  grid-template-areas: "h1  .    .    .  " "h1  .   h2_1 h2_1" "h1 line line h2_2";
+  align-items: end;
+  column-gap: 1rem;
+  padding-bottom: 7rem;
 }
 @media screen and (max-width: 900px) {
-  .expositions {
-    padding-top: 0;
-    padding-bottom: 10rem;
-    min-height: auto;
-  }
-}
-.expositions .expositions-container {
-  width: 60vw;
-  min-width: 80rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10rem;
-}
-@media screen and (max-width: 1400px) {
-  .expositions .expositions-container {
+  .home-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: fit-content;
     width: 100%;
-    min-width: auto;
-    gap: 5rem;
-    padding: 0 5rem;
+    padding-bottom: 0;
   }
 }
-@media screen and (max-width: 1400px) {
-  .expositions .expositions-container {
-    padding: 0 0;
-  }
-}
-.expositions .expositions-container > * {
-  width: 100%;
-}
-.expositions .expositions-container > *:nth-child(1) {
-  text-align: right;
-}
-.expositions .expositions-container > *:nth-child(3) {
-  text-align: right;
-}
-.expositions h3 {
-  position: relative;
-  font-size: 4rem;
-  font-weight: 500;
-}
-@media screen and (max-width: 1400px) {
-  .expositions h3 {
-    font-size: 3rem;
-  }
+.home-screen h1 {
+  font-size: 4.8rem;
+  line-height: 4.8rem;
+  font-weight: 400;
+  white-space: nowrap;
+  grid-area: h1;
 }
 @media screen and (max-width: 900px) {
-  .expositions h3 {
-    font-size: 2rem;
+  .home-screen h1 {
+    margin-bottom: 1rem;
   }
 }
-.expositions h3::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 0.1rem;
+.home-screen h2 {
+  width: fit-content;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+  font-weight: 400;
+  font-style: italic;
+  text-align: right;
+  white-space: nowrap;
   width: 100%;
-  background-color: #ffffff;
+  margin-bottom: 0;
+}
+.home-screen h2.h2-pt1 {
+  /* séparation du h2 en deux lignes pour que leurs largeurs soient indépendantes */
+  grid-area: h2_1;
+}
+.home-screen h2.h2-pt2 {
+  /* séparation du h2 en deux lignes pour que leurs largeurs soient indépendantes */
+  grid-area: h2_2;
 }
 @media screen and (max-width: 900px) {
-  .expositions h3::after {
+  .home-screen h2 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    opacity: 0.8;
+    margin-top: 0;
+  }
+  .home-screen h2::after {
     display: none;
   }
 }
-.expositions p {
-  color: rgba(255, 255, 255, 0.5647058824);
-  font-size: 3.6rem;
-}
-@media screen and (max-width: 1400px) {
-  .expositions p {
-    font-size: 3rem;
-  }
+.home-screen .decorative-div {
+  /* utilisation d'un div au lieu d'un ::before ou ::after pour plus de facilité de placement */
+  height: 0.1rem;
+  width: 100%;
+  background-color: #ffffff;
+  opacity: 0.4;
+  transform: translateY(-0.6rem);
+  grid-area: line;
 }
 @media screen and (max-width: 900px) {
-  .expositions p {
-    position: relative;
-    font-size: 2rem;
-    color: #1E1E1E;
-    opacity: 0.8;
+  .home-screen .decorative-div {
+    display: none;
   }
-  .expositions p::after {
-    content: "";
-    position: absolute;
-    bottom: -2.5rem;
-    left: 0;
-    height: 0.1rem;
+}
+.home-screen .mobile-image {
+  /* image qui s'affiche que sur mobile, à la place de l'image de fond */
+  display: none;
+}
+@media screen and (max-width: 900px) {
+  .home-screen .mobile-image {
+    display: inline;
     width: 100%;
-    background-color: #1E1E1E;
-    opacity: 0.2;
+    margin-bottom: 1rem;
   }
 }
 
@@ -500,6 +495,10 @@ footer ul a:hover {
 }
 .pageSources footer a {
   color: #1E1E1E;
+}
+
+:root {
+  --opacity: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

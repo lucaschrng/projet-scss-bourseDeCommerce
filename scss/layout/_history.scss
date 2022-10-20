@@ -1,0 +1,115 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.history {
+    padding-top: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--content {
+        width: 100%;
+        /* utilisation d'un grid car plusieurs éléments sont alignés sur deux dimensions */
+        /* le grid permet aussi de supperposés des éléments, ici les ronds et la flèche sur la ligne */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        row-gap: 1rem;
+        column-gap: 10rem;
+
+        @include breakpoint(1400px) {
+            column-gap: 4rem;
+        }
+
+        > div, > img {
+            @include breakpoint(900px) {
+                /* enlève les élements graphiques de la timeline (mobile) */
+                display: none;
+            }
+        }
+
+        // place automatiquement chaque cercle dans le grid
+        @for $i from 1 through 3 {
+            &--circle__#{$i} {
+                grid-column: $i;
+                grid-row: 1;
+                height: 1rem;
+                width: 1rem;
+                border-radius: 50%;
+                background-color: #ffffff;
+                transition: all 0.2s ease;
+            }
+        }
+
+        &--line {
+            height: 0.1rem;
+            background-color: #ffffff;
+            align-self: center;
+            grid-column: 1/4;
+            grid-row: 1;
+            transition: all 1.2s ease;
+        }
+
+        &--arrow-end {
+            grid-column: 3;
+            grid-row: 1;
+            height: 1rem;
+            filter: invert(1);
+            justify-self: right;
+            rotate: -90deg;
+            translate: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        &--subtitle {
+            font-size: 3.2rem;
+            font-weight: $fw-bold;
+            margin-top: 2rem;
+
+            @include breakpoint(1400px) {
+                font-size: 2.4rem;
+            }
+        }
+
+        &--text {
+            font-size: 2.4rem;
+            line-height: 1.1em;
+            margin-top: 2rem;
+            max-width: 30ch;
+            word-spacing: 0.2rem;
+
+            @include breakpoint(1400px) {
+                font-size: 2rem;
+                max-width: 100%;
+            }
+        }
+
+        @include breakpoint(900px) {
+            /* les textes ont été placés de sorte à ce qu'ils se placent naturellement dans le grid */
+            /* sur mobile, l'affichage passe en flex, c'est pourquoi on change l'ordre des textes afin qu'ils apparaissent en dessous de leur titre respectif */
+            display: flex;
+            flex-direction: column;
+
+            .subtitle2 {
+                order: 3;
+            }
+
+            .subtitle3 {
+                order: 5;
+            }
+
+            .text2 {
+                order: 4;
+            }
+
+            .text3 {
+                order: 6;
+            }
+        }
+    }
+
+    @include breakpoint(900px) {
+        padding-top: 0;
+    }
+}

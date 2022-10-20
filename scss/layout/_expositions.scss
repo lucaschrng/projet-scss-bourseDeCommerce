@@ -1,0 +1,107 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.expositions {
+    padding-top: 25vh;
+    padding-bottom: 10vh;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint(900px) {
+        padding-top: 0;
+        padding-bottom: 10rem;
+        min-height: auto;
+    }
+
+    .expositions-container {
+        width: 60vw;
+        min-width: 80rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10rem;
+
+        @include breakpoint(1400px) {
+            width: 100%;
+            min-width: auto;
+            gap: 5rem;
+            padding: 0 5rem;
+        }
+
+        @include breakpoint(1400px) {
+            padding: 0 0;
+        }
+
+        > * {
+            width: 100%;
+
+            // alterne l'alignement du texte une fois sur deux
+            @for $i from 1 through 4 {
+                @if ($i%2==1) {
+                    &:nth-child(#{$i}) {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+
+    h3 {
+        position: relative;
+        font-size: 4rem;
+        font-weight: $fw-regular;
+
+        @include breakpoint(1400px) {
+            font-size: 3rem;
+        }
+
+        @include breakpoint(900px) {
+            font-size: 2rem;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 0.1rem;
+            width: 100%;
+            background-color: #ffffff;
+            
+            @include breakpoint(900px) {
+                display: none;
+            }
+        }
+    }
+
+    p {
+        color: #ffffff90;
+        font-size: 3.6rem;
+
+        @include breakpoint(1400px) {
+            font-size: 3rem;
+        }
+
+        @include breakpoint(900px) {
+            position: relative;
+            font-size: 2rem;
+            color: #1E1E1E;
+            opacity: 0.8;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2.5rem;
+                left: 0;
+                height: 0.1rem;
+                width: 100%;
+                background-color: $clr-dark;
+                opacity: 0.2;
+            }
+        }
+    }
+}
